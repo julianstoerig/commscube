@@ -5,4 +5,8 @@ a simple mesh radio using text over LoRa
 - NotKubi
 - tessa / tessamesh
 - Funkubus / Funkkubus
-- resqb
+- ~~resqb~~ (zu ähnlich zu bestehend)
+- cakecube
+- bananacube
+
+
