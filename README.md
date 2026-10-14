@@ -9,4 +9,6 @@ a simple mesh radio using text over LoRa
 - cakecube
 - bananacube
 
+# randoms
 
+- pins zu stapel fixierung

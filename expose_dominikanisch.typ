@@ -1,55 +1,53 @@
+
+
 #set page(
   paper: "a4",
-  margin: (left: 2.4cm, right: 2.4cm, top: 1.3cm, bottom: 2.3cm),
+  margin: (left: 2.4cm, right: 2.4cm, top: 0.4cm, bottom: 2.3cm),
   numbering: none,
 )
 #set text(lang: "de", size: 12pt)
 #set par(first-line-indent: 0pt)
 
 #align(center)[
-  // Logo als Hauptüberschrift
-  #image("logo.png", width: 33%)
-
-  // Untertitel
-  #text(size: 11pt, style: "italic")[Emergency Mesh Communication]
-
-  // KI-Disclaimer für das Logo
-  #text(size: 8pt, style: "italic")[(Logo KI-generiert)]
+  #set text(font: "Arial Black", size: 1.8em,)
+  commscube
+  #box(move(dx: 0pt, dy: 22pt ,image("logo.svg", width: 21%)))
+  
+  #text(size: 11pt, style: "italic")[NotKubi, Tessa, bananacube]
 ]
 
 #set heading(numbering: "1.1", )
 #show heading: it => {
   set align(center)
-  set block(above: 2em, below: 1em)
+  set block(above: 4em, below: 1em)
   it
 }
 
 
+
 = Abstract / Problembeschreibung
-Unsere digitalisierte Gesellschaft ist auf eine zuverlässige Energie- und Kommunikationsinfrastruktur angewiesen. Gerade bei Großschadenslagen können Ausfälle dieser Systeme die Arbeit von Rettungs- und Hilfskräften zusätzlich erschweren. NotKubi soll deshalb eine einfache, möglichst unabhängige Möglichkeit bieten, kurze Textnachrichten auszutauschen. Der Würfel soll keinen bestehenden Einsatzfunk ersetzen, sondern diesen sinnvoll ergänzen.
+Gerade bei Großschadenslagen können Ausfälle des BOS-Digitalfunks und andere Systeme die Arbeit von Rettungs- und Hilfskräften zusätzlich erschweren.
+Deshalb soll eine einfache, möglichst unabhängige Möglichkeit entwikeltwerden, kurze Textnachrichten auszutauschen.
+Der Würfel soll nicht als weiteres Kommunikationsgerät für den Regelbetrieb entwickelt werden, sondern als Rückfallsystem.
 
 // Einsatzszenario 1: Logistik (ausgewählt)
 //Bei größeren Einsätzen müssen neben akuten Notfällen auch Material, Verpflegung und freiwillige Helfer koordiniert werden. Die Nachricht, dass der Nudelvorrat einer Hilfsstation nur noch bei fünf Prozent liegt, ist durchaus wichtig -- sollte aber nicht den Funkverkehr während einer Brandbekämpfung belegen. NotKubi soll solche organisatorischen Nachrichten auf einen eigenen Kommunikationsweg verlagern. Dank einer unabhängigen Energieversorgung könnten die Würfel auch an Hilfsstationen und freiwillige Helfer ausgegeben werden. Dringende Meldungen sollen dabei Vorrang erhalten.
 
 // Einsatzszenario 2: Rückfallebene (Alternative, auskommentiert)
- Auch gut ausgestattete Rettungskräfte können in Situationen geraten,
- in denen gewohnte Kommunikationswege nicht mehr funktionieren: etwa bei
- Ausfall der Leitstelle, fehlender Funkabdeckung oder defekten Geräten.
- NotKubi soll dann als letzte Rückfallebene dienen. Dank eigener
- Energieversorgung könnten die Würfel weiterhin kurze Nachrichten
- austauschen, ohne auf eine bestehende Funk- oder Mobilfunkinfrastruktur
- angewiesen zu sein.
-
+ 
+Der Würfel soll resilient gegen Kiesen-, Katastrophen und Blackoutlagen, wenn gewohnte Kommunikationswege nicht mehr funktionieren, auch noch zuverfässige Rudimentäre Kommunikation gewährleisten.
+Auserdem soll der fokus auf einfacher Bedienbarkeit und hocher Robustheit liegen.
+Die Würfel Abmessungen solleten ca. $15 "cm"^3$ betragen.
 
 = Lösungsvorschlag
 Der Lösungsvorschlag ist ein Text Funkgerät das auf lizenfreiem LoRa Funk basiert.
-Nachrchten Eingabe und Anzeige erfolgt über ein integiretes Display und meherer Tasten.
+Konkret wird das Quell offene Funkprotokoll Meshtastic als Grundlage genutzt.
+Das bereits Weitverbreitete dezentrale Netzerek ist resilient und zuverfässig.
+#align(center)[#image("map_plus_logo.png", width: 100%)]
+Einfache Nachrichten Eingabe und Anzeige erfolgt über ein integiretes Display und meherer Tasten.
+//#align(center)[#image("moc.png" ,width: 20%)]
 Unabänikeit von bestehender Kommunikations Infrastruktur wird mit ein Mesh-Netzwerk gelöst.
 Ein Integireter Akku und Kleine baugröße ermöglichen den Mobielen einsatz.
-
-Die Entwicklung eines Gehäuses mit Fokus auf einfache Handhabung ist geplant.
-Aufgrund der Kleinserie kommt das 3D-Druck-Verfahren als Fertigungsmethode infrage.
-Ausgeschlossen sind EMV Prüfungen sowie erfüllung spezifischer IP-Schutzklassen.
 
 
 // Als Grundlage dient ein Mikrocontroller, ein Display, und ein LoRa-Funkmodul für das 868-MHz-Band vorgesehen.
