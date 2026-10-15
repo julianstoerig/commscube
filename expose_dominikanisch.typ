@@ -27,7 +27,7 @@
 
 = Abstract / Problembeschreibung
 Gerade bei Großschadenslagen können Ausfälle des BOS-Digitalfunks und andere Systeme die Arbeit von Rettungs- und Hilfskräften zusätzlich erschweren.
-Deshalb soll eine einfache, möglichst unabhängige Möglichkeit entwikeltwerden, kurze Textnachrichten auszutauschen.
+Deshalb soll eine einfache, möglichst unabhängige Möglichkeit entwickelt werden, kurze Textnachrichten auszutauschen.
 Der Würfel soll nicht als weiteres Kommunikationsgerät für den Regelbetrieb entwickelt werden, sondern als Rückfallsystem.
 
 // Einsatzszenario 1: Logistik (ausgewählt)
@@ -35,19 +35,19 @@ Der Würfel soll nicht als weiteres Kommunikationsgerät für den Regelbetrieb e
 
 // Einsatzszenario 2: Rückfallebene (Alternative, auskommentiert)
  
-Der Würfel soll resilient gegen Kiesen-, Katastrophen und Blackoutlagen, wenn gewohnte Kommunikationswege nicht mehr funktionieren, auch noch zuverfässige Rudimentäre Kommunikation gewährleisten.
-Auserdem soll der fokus auf einfacher Bedienbarkeit und hocher Robustheit liegen.
-Die Würfel Abmessungen solleten ca. $15 "cm"^3$ betragen.
+Der Würfel soll resilient gegen Krisen-, Katastrophen und Blackoutlagen, wenn gewohnte Kommunikationswege nicht mehr funktionieren, auch noch zuverfässige rudimentäre Kommunikation gewährleisten.
+Außerdem soll der Fokus auf einfacher Bedienbarkeit und hoher Robustheit liegen.
+Die Kantenlänge des Würfels soll ca. $15  "cm"$ betragen.
 
 = Lösungsvorschlag
-Der Lösungsvorschlag ist ein Text Funkgerät das auf lizenfreiem LoRa Funk basiert.
-Konkret wird das Quell offene Funkprotokoll Meshtastic als Grundlage genutzt.
-Das bereits Weitverbreitete dezentrale Netzerek ist resilient und zuverfässig.
+Der Lösungsvorschlag ist ein Text-Funkgerät, das auf lizenfreiem LoRa Funk basiert.
+Konkret wird das quelloffene Funkprotokoll Meshtastic als Grundlage genutzt.
+Das bereits weitverbreitete dezentrale Netzwerk ist resilient und zuverlässig.
 #align(center)[#image("map_plus_logo.png", width: 100%)]
-Einfache Nachrichten Eingabe und Anzeige erfolgt über ein integiretes Display und meherer Tasten.
+Die Eingabe und Anzeige einfacher Nachrichten erfolgt über ein integriertes Display und mehrere Tasten.
 //#align(center)[#image("moc.png" ,width: 20%)]
-Unabänikeit von bestehender Kommunikations Infrastruktur wird mit ein Mesh-Netzwerk gelöst.
-Ein Integireter Akku und Kleine baugröße ermöglichen den Mobielen einsatz.
+Unabhängikeit von bestehender Kommunikations-Infrastruktur wird mit einem Mesh-Netzwerk gelöst.
+Ein integrieter Akku und kleine Baugröße ermöglichen den mobilen Einsatz.
 
 
 // Als Grundlage dient ein Mikrocontroller, ein Display, und ein LoRa-Funkmodul für das 868-MHz-Band vorgesehen.
