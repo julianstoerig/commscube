@@ -63,4 +63,4 @@ Zur Verschlüsselung nutzt Meshtastic standardmäßig AES128 oder AES256 PSK.
 
 In der Praxis sind viele der oben genannten Einstellungen schon unter sog. "Presets" zusammengefasst.
 Die gewählten Einstellungen entsprechen dem Preset "Long Fast", welches breite Anwendung, auch im Raum München, findet.
-Es erreicht mit einer Sendeempfangsantenne mit $3 "dBi"$ Gewinn ein typisches Linkbudget von $approx 156 "dBi"$ bei einer Datenrate von $1.07 "kBit"/"s"$.
+Es erreicht mit einer Sendeempfangsantenne mit $3 "dBi"$ Gewinn ein typisches Linkbudget von $approx 156 "dB"$ bei einer Datenrate von $1.07 "kBit"/"s"$.
