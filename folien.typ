@@ -221,7 +221,7 @@
     columns: (1fr, 2.5fr),
     gutter: 0.5in,
     [
-      #v(2em)
+      #v(4em)
       == Local Demo
       - laptop zu docucam
       - docucam zu laptop
@@ -231,8 +231,9 @@
       - weg zu laptop
     ],
     [
+      #v(0.5cm)
       #figure(
-        image("pinout.svg", width: 100%),
+        image("pinout_edit.webp", width: 110%),
         caption: [Pinout Diagram @lora-board],
         numbering: none,
       )
