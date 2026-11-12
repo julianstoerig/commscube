@@ -70,8 +70,8 @@
       - Robust/stoßfest
       
       == POC - Proof of Concept
-      - Kommunikation @lora-board
-      - Demo Board @lora-board
+      - Kommunikation
+      - Demo Board
     ],
     [
       // Source of a picture: figure without number, caption cites the source.
@@ -258,5 +258,3 @@
   #set text(size: 12pt)
   #bibliography("refs.bib", title: none, style: "ieee")
 ]
-
-
