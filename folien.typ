@@ -36,7 +36,7 @@
     #text(size: 26pt)[meilenstein uno]
 
     #v(1.5em)
-    #text(size: 18pt)[Fabian Fahmüller · Dominik Dethlefsen · Julian Störig · Florian Rößler]
+    #text(size: 18pt)[Fabian Fahmüller · Dominik Dethleffsen · Julian Störig · Florian Rößler]
   ]
 ]
 
@@ -64,20 +64,20 @@
       #v(2cm)
       == Apokalypsen Szenario
       - Dezentral
-      - Minimale Kommunikation Gewährleisten 
+      - Minimale Kommunikation gewährleisten 
       - Unabhänging von jeglicher Infrastruktur
       - Einfache Bedienung
-      - Robust/Stoßfest
+      - Robust/stoßfest
       
       == POC - Proof of Concept
       - Kommunikation @lora-board
-      - Demo board @lora-board
+      - Demo Board @lora-board
     ],
     [
       // Source of a picture: figure without number, caption cites the source.
       #figure(
         image("concept_art.webp", width: 78%),
-        caption: [Concept: @concept-art],
+        caption: [Konzept: @concept-art],
         numbering: none,
       )
 
@@ -133,7 +133,7 @@
       - Bandbreite 62,5 kHz: im 868-MHz-Band erlaubt, unkritischer Oszillator @meshtastic-radio
       - Coding Rate 4/5: Coderate 0,8, reduziert Kanalüberlastung 
       == Regulierung
-      - Region `EU_868`: 868-MHz-ISM-Band 10 % Duty Cycle, +27 dBm @meshtastic-radio
+      - Region `EU_868`: 868-MHz-ISM-Band 10 % Duty Cycle, +27 dBm ERP @meshtastic-radio
       - 868 MHz: beliebtestes Band in EU @meshtastic-radio
     ],
     [
@@ -154,7 +154,7 @@
     columns: (1fr, 1fr),
     gutter: 0.5in,
     [
-      == Generelles
+      == Allgemeines
       - Open Source, 100 % Community~@meshtastic-intro
       - Managed Flooding (SNR-basiert) @meshtastic-algo
       - Hop Limit 3 (max. 7): Kapazität vor Reichweite~@meshtastic-lora
@@ -223,12 +223,12 @@
     [
       #v(4em)
       == Local Demo
-      - laptop zu docucam
-      - docucam zu laptop
+      - Laptop zu Doku-Cam
+      - Doku-Cam zu Laptop
 
-      == Longrange Demo
-      - laptop zu weg
-      - weg zu laptop
+      == Long-range Demo
+      - Laptop zu "weg"
+      - "weg" zu Laptop
     ],
     [
       #v(0.5cm)
@@ -244,7 +244,7 @@
 
 // Example slide: header followed by two equally sized columns.
 #slide[
-  = Interactive Demo
+  = Interaktive Demo
 
   #align(center)[
       #v(5em)
