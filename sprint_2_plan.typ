@@ -6,11 +6,25 @@
 - bedienung
     - tastatur
         - idealerweise als USB tastatur mittels USB OTG
-        - falls USB nicht klappt, dann T9 mittels Tastenblock oder on-screen tastatur mit rotary encoder
+        - falls USB nicht klappt evtl. Bluetooth, dann T9 mittels Tastenblock oder on-screen tastatur mit rotary encoder
     - vier knöpfe, wie geplant
         - auf jeden Fall
 - kann funken, wie sprint 1
+- 3 würfel
+    - mindestens 3 "symbolische Würfel", ein funktionierender
 - absoluter notfall: gerät aus sprint1 irgendwie in würfel einbauen oder so
 - test: netz ohne andere teilnehmer
     - teilnehmer auf karte "gepinnt" mit Bild, etc.
+    - mit auf Poster oder eigenes DIN A3 Blatt
 - GPS integrieren für realtime
+    - falls GPS nicht im Atrium funktioniert, dann Einblendung die letzten GPS timesync zeigt
+- Buzzer
+- Termin finale Abnahme ReTi 17.12
+- Pitch als Präsentation mit einer Folie
+    - 60 Sekunden
+    - Folie
+        - Termin Abgabe  7.1 bei ReTi
+        - Termin Abgabe 11.1 bei Lärchl
+- Plakat
+    - Druckerei? Termin? erfragen!!!
+    - Kein Tagungsplakat, aber schon mit Inhalt    
