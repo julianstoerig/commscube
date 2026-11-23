@@ -10,7 +10,7 @@
 #align(center)[
   #set text(font: "Arial Black", size: 1.8em,)
   commscube
-  #box(move(dx: 0pt, dy: 22pt ,image("logo.svg", width: 21%)))
+  #box(move(dx: 0pt, dy: 22pt ,image("bilder/logo.svg", width: 21%)))
   
   #text(size: 11pt, style: "italic")[NotKubi, Tessa, bananacube]
 ]
