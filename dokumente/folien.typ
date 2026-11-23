@@ -31,7 +31,7 @@
   #align(center + horizon)[
     #text(size: 42pt, weight: "bold")[commscube · bananacube  · tessa]
 
-    #image("logo_folien.svg", width: 30%)
+    #image("bilder/logo_folien.svg", width: 30%)
     #v(0.5em)
     #text(size: 26pt)[meilenstein uno]
 
@@ -76,13 +76,13 @@
     [
       // Source of a picture: figure without number, caption cites the source.
       #figure(
-        image("concept_art.webp", width: 78%),
+        image("bilder/concept_art.webp", width: 78%),
         caption: [Konzept: @concept-art],
         numbering: none,
       )
 
       #figure(
-        image("My-Eyes-the-goggles.jpg", width: 78%),
+        image("bilder/My-Eyes-the-goggles.jpg", width: 78%),
         caption: [KI Haftungsausschluss: @goggles],
         numbering: none,
       )
@@ -104,11 +104,11 @@
       - LoRa Modul SX1276 (868/915MHz)
       - 0.96" Oled Display
       - SMA Female Antenna Connector
-      //#image("liygo_lora_board.webp", width: 70%)
+      //#image("bilder/liygo_lora_board.webp", width: 70%)
     ],
     [
       #figure(
-        image("liygo_lora_board_front_back.webp", width: 90%),
+        image("bilder/liygo_lora_board_front_back.webp", width: 90%),
         caption: [LILYGO LoRa32: @lora-board],
         numbering: none,
       )
@@ -138,7 +138,7 @@
     ],
     [
       #figure(
-        image("lora_mod.png", width: 87%),
+        image("bilder/lora_mod.png", width: 87%),
         caption: [LoRa Modulation: @lora-mod],
         numbering: none,
       )
@@ -171,7 +171,7 @@
     ],
     [
       #figure(
-        image("map_meshtastic_logo.svg", width: 80%),
+        image("bilder/map_meshtastic_logo.svg", width: 80%),
         caption: [Meshtastic Logo],
         numbering: none,
       )
@@ -188,7 +188,7 @@
     columns: (1fr, 1fr),
     gutter: 0.5in,
     [
-      #image("demso_setup.svg", width: 82%)
+      #image("bilder/demso_setup.svg", width: 82%)
     ],
     [
       == Lokale Node
@@ -233,7 +233,7 @@
     [
       #v(0.5cm)
       #figure(
-        image("pinout_edit.webp", width: 110%),
+        image("bilder/pinout_edit.webp", width: 110%),
         caption: [Pinout Diagram @lora-board],
         numbering: none,
       )

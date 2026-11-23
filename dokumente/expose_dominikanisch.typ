@@ -11,7 +11,7 @@
 #align(center)[
   #set text(font: "Arial Black", size: 1.8em,)
   commscube
-  #box(move(dx: 0pt, dy: 22pt ,image("logo.svg", width: 21%)))
+  #box(move(dx: 0pt, dy: 22pt ,image("bilder/logo.svg", width: 21%)))
   
   #text(size: 11pt, style: "italic")[NotKubi, Tessa, bananacube]
 ]
@@ -43,9 +43,9 @@ Die Kantenlänge des Würfels soll ca. $15  "cm"$ betragen.
 Der Lösungsvorschlag ist ein Text-Funkgerät, das auf lizenfreiem LoRa Funk basiert.
 Konkret wird das quelloffene Funkprotokoll Meshtastic als Grundlage genutzt.
 Das bereits weitverbreitete dezentrale Netzwerk ist resilient und zuverlässig.
-#align(center)[#image("map_plus_logo.png", width: 100%)]
+#align(center)[#image("bilder/map_plus_logo.png", width: 100%)]
 Die Eingabe und Anzeige einfacher Nachrichten erfolgt über ein integriertes Display und mehrere Tasten.
-//#align(center)[#image("moc.png" ,width: 20%)]
+//#align(center)[#image("bilder/moc.png" ,width: 20%)]
 Unabhängikeit von bestehender Kommunikations-Infrastruktur wird mit einem Mesh-Netzwerk gelöst.
 Ein integrieter Akku und kleine Baugröße ermöglichen den mobilen Einsatz.
 
