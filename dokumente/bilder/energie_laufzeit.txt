@@ -1,0 +1,1 @@
+Geschätzte Laufzeit mit 10 000-mAh-Akku je Szenario. Controller nRF52840 mit GNSS-Modul und USB-Board. Stromwerte aus Datenblättern.
