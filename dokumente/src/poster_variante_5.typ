@@ -159,7 +159,7 @@
       - Jeder Knoten sendet eine Nachricht einmal weiter @meshtastic-algo.
       - Knoten am Rand der Reichweite senden zuerst.
       - Doppelte Nachrichten werden verworfen.
-      - Eine Nachricht wird bis zu dreimal weitergeleitet, auf Wunsch bis zu siebenmal @meshtastic-lora.
+      - Eine Nachricht wird bis zu dreimal weitergeleitet @meshtastic-lora.
     ],
   )
   - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.

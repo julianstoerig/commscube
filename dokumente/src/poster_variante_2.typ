@@ -149,7 +149,7 @@
       == Jedes Gerät ist ein Relais
       - Erreicht eine Nachricht ihr Ziel nicht direkt, reichen andere Würfel sie weiter
       - Fällt ein Knoten aus, nimmt sie einen anderen Weg. Eine Zentrale, die ausfallen könnte, gibt es nicht
-      - Bis zu drei Weiterleitungen, auf Wunsch bis zu sieben
+      - Bis zu drei Weiterleitungen
       - Verschlüsselt mit AES
     ],
     figure(
