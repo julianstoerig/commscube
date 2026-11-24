@@ -1,5 +1,5 @@
 // Poster A0 hochkant
-#let dunkel = rgb("#243247")
+#let dunkel = black
 #let akzent = color.hsl(140.69deg, 75.65%, 35.00%)
 #let grau = rgb("#5b6675")
 #let hintergrund = rgb("#F2F5F3")
@@ -34,18 +34,14 @@
 
 #set page(paper: "a0", margin: 4cm, fill: hintergrund)
 
-// Drittelraster zur Kontrolle: typst compile --input raster=1 poster_variante_1.typ
-#set page(foreground: if sys.inputs.at("raster", default: "0") == "1" {
-  for f in (1 / 3, 2 / 3) {
-    place(line(start: (f * 100%, 0%), end: (f * 100%, 100%), stroke: 0.15cm + red))
-    place(line(start: (0%, f * 100%), end: (100%, f * 100%), stroke: 0.15cm + red))
-  }
-})
 #set text(lang: "de", size: 35pt, font: "Inter", fill: dunkel)
 #set par(leading: 0.65em)
 
 #show heading.where(level: 2): set text(size: 54pt, hyphenate: false)
 #show heading.where(level: 2): set block(below: 1.2cm)
+#show heading.where(level: 3): set text(size: 42pt)
+#show heading.where(level: 3): set block(above: 0pt, below: 35pt)
+#show title: set text(size: 130pt, weight: "black")
 
 #set list(
   marker: circle(radius: 0.35cm, fill: akzent),
@@ -64,7 +60,7 @@
   [
     #stack(
       spacing: 1cm,
-      text(size: 130pt, weight: "black")[CommsCube],
+      title[CommsCube],
       text(size: 50pt, fill: grau)[Erreichbar, wenn die Netze schweigen],
       text(size: 30pt, fill: grau)[Fabian Fahmüller · Dominik Dethleffsen · Julian Störig · Florian Rößler],
     )
@@ -148,7 +144,7 @@
       columns: (1fr, 1fr),
       column-gutter: 2cm,
       row-gutter: 4cm,
-      ..faelle.map(((titel, t)) => [#block(above: 0pt, below: 1em, text(size: 42pt, weight: "bold", titel)) #t]),
+      ..faelle.map(((titel, t)) => [#heading(level: 3, titel) #t]),
     )
   ], none, false),
   (gestreckt => [
@@ -170,7 +166,7 @@
     == Jedes Gerät ist ein Relais
     - Erreicht eine Nachricht ihr Ziel nicht direkt, reichen andere Würfel sie weiter
     - Fällt ein Knoten aus, nimmt sie einen anderen Weg. Eine Zentrale, die ausfallen könnte, gibt es nicht
-    - Bis zu drei Weiterleitungen, maximal sieben
+    - Bis zu drei Weiterleitungen
     - Verschlüsselt mit AES
     #if gestreckt { v(1fr) }
     #block(fill: hintergrund, radius: 1cm, width: 100%, height: bildhoehe, align(center + horizon, mesh))

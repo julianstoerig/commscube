@@ -1,5 +1,5 @@
 // Poster A0 hochkant, Variante 3: wissenschaftlicher Aufbau
-#let dunkel = rgb("#243247")
+#let dunkel = black
 // Rot aus dem Logo der Hochschule München
 #let akzent = rgb("#FC5555")
 #let grau = rgb("#5b6675")
@@ -9,13 +9,6 @@
 
 #set page(paper: "a0", margin: (x: 3.5cm, top: 3cm, bottom: 3.5cm), fill: white)
 
-// Drittelraster zur Kontrolle: typst compile --input raster=1 poster_variante_3.typ
-#set page(foreground: if sys.inputs.at("raster", default: "0") == "1" {
-  for f in (1 / 3, 2 / 3) {
-    place(line(start: (f * 100%, 0%), end: (f * 100%, 100%), stroke: 0.15cm + red))
-    place(line(start: (0%, f * 100%), end: (100%, f * 100%), stroke: 0.15cm + red))
-  }
-})
 #set text(lang: "de", size: 38pt, font: "Libertinus Serif", fill: dunkel)
 #set par(justify: true, leading: 0.55em, spacing: 0.9em)
 
@@ -30,6 +23,8 @@
   inset: (bottom: 0.4cm),
   [#text(fill: akzent, counter(heading).display(it.numbering)) #h(0.4em) #it.body],
 )
+
+#show title: set text(size: 120pt, weight: "bold")
 
 #set list(marker: [–], body-indent: 0.6em, spacing: 0.7em)
 #show list: set par(justify: false)
@@ -65,7 +60,7 @@
       set par(justify: false)
       stack(
         spacing: 1.2cm,
-        text(size: 120pt, weight: "bold")[CommsCube],
+        title[CommsCube],
         text(size: 58pt, style: "italic")[Infrastruktur-unabhängiger Textfunk als Ersatzsystem für den Ernstfall],
         text(size: 36pt, fill: grau)[Fabian~Fahmüller · Dominik~Dethleffsen · Julian~Störig · Florian~Rößler \ Hochschule München],
       )
@@ -164,7 +159,7 @@
   / Managed Flooding: Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
   / Vorrang: Knoten mit schwachem Empfang senden zuerst. Sie liegen meist am Rand der Reichweite.
   / Duplikate: Eine schon weitergeleitete Nachricht wird nicht erneut gesendet.
-  / Hop-Limit: 3 Weiterleitungen, maximal 7 @meshtastic-lora.
+  / Hop-Limit: Eine Nachricht wird bis zu dreimal weitergeleitet @meshtastic-lora.
   / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg. Eine Zentrale gibt es nicht.
   / Verschlüsselung: AES mit Kanalschlüssel @meshtastic-enc.
 

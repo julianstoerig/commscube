@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="669.350062pt" height="371.386579pt" viewBox="0 0 669.350062 371.386579" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 371.386579 
+L 669.350062 371.386579 
+L 669.350062 0 
+L 0 0 
+L 0 371.386579 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 207.984688 277.186579 
+L 662.150062 277.186579 
+L 662.150062 7.2 
+L 207.984688 7.2 
+L 207.984688 277.186579 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 207.984688 19.472117 
+L 602.9111 19.472117 
+L 602.9111 60.379175 
+L 207.984688 60.379175 
+z
+" clip-path="url(#p58402603f9)" style="fill: #fc5555"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 207.984688 87.650546 
+L 526.316826 87.650546 
+L 526.316826 128.557604 
+L 207.984688 128.557604 
+z
+" clip-path="url(#p58402603f9)" style="fill: #fc5555"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 207.984688 155.828975 
+L 507.718695 155.828975 
+L 507.718695 196.736033 
+L 207.984688 196.736033 
+z
+" clip-path="url(#p58402603f9)" style="fill: #fc5555"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 207.984688 224.007404 
+L 273.409269 224.007404 
+L 273.409269 264.914462 
+L 207.984688 264.914462 
+z
+" clip-path="url(#p58402603f9)" style="fill: #fc5555"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m519ef448d7" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m519ef448d7" x="207.984688" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="207.984688" y="310.140579" transform="rotate(-0 207.984688 310.140579)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m519ef448d7" x="366.891038" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="366.891038" y="310.140579" transform="rotate(-0 366.891038 310.140579)">20</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m519ef448d7" x="525.797389" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="525.797389" y="310.140579" transform="rotate(-0 525.797389 310.140579)">40</text>
+     </g>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="435.067375" y="352.140579" transform="rotate(-0 435.067375 352.140579)">Laufzeit in Tagen</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="m0c262c5b91" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="39.925646" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="52.902646" transform="rotate(-0 190.484688 52.902646)">Bereitschaft</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="108.104075" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="121.081075" transform="rotate(-0 190.484688 121.081075)">Einsatz</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="176.282504" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="189.259504" transform="rotate(-0 190.484688 189.259504)">Nur Relais</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="244.460933" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="257.437933" transform="rotate(-0 190.484688 257.437933)">Ernstfall</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 207.984688 277.186579 
+L 207.984688 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 207.984688 277.186579 
+L 662.150062 277.186579 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="608.9111" y="46.974052" transform="rotate(-0 608.9111 46.974052)">50</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="532.316826" y="115.058075" transform="rotate(-0 532.316826 115.058075)">40</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="513.718695" y="183.236504" transform="rotate(-0 513.718695 183.236504)">38</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="279.409269" y="251.414933" transform="rotate(-0 279.409269 251.414933)">8</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p58402603f9">
+   <rect x="207.984688" y="7.2" width="454.165374" height="269.986579"/>
+  </clipPath>
+ </defs>
+</svg>

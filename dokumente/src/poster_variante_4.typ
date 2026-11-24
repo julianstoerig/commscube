@@ -9,13 +9,6 @@
 
 #set page(paper: "a0", margin: (x: 3.5cm, top: 3cm, bottom: 3.5cm), fill: white)
 
-// Drittelraster zur Kontrolle: typst compile --input raster=1 poster_variante_4.typ
-#set page(foreground: if sys.inputs.at("raster", default: "0") == "1" {
-  for f in (1 / 3, 2 / 3) {
-    place(line(start: (f * 100%, 0%), end: (f * 100%, 100%), stroke: 0.15cm + red))
-    place(line(start: (0%, f * 100%), end: (100%, f * 100%), stroke: 0.15cm + red))
-  }
-})
 
 // Times wie in IEEE-Vorlagen, Blocksatz mit Silbentrennung
 #set text(lang: "de", size: 39pt, font: "TeX Gyre Termes", fill: schwarz)
@@ -47,8 +40,7 @@
 // Begriffe als kursive Zwischenüberschrift im Fließtext (IEEE-Ebene 3)
 #show terms.item: it => par(first-line-indent: 0em)[#emph[#it.term:] #it.description]
 
-// Kernaussagen ohne Hervorhebung, wie normaler Absatz
-#let kern(inhalt) = par(inhalt)
+#show title: set text(size: 80pt, weight: "regular")
 
 // Zusammenfassung und Schlüsselwörter mit fett-kursivem Einstieg
 #let zusammenfassung = {
@@ -70,7 +62,7 @@
     hm-logo,
     align(center, stack(
       spacing: 1.2cm,
-      text(size: 80pt)[CommsCube: Infrastrukturunabhängiger Textfunk als Ersatzsystem für den Ernstfall],
+      title[CommsCube: Infrastrukturunabhängiger Textfunk als Ersatzsystem für den Ernstfall],
       text(size: 40pt)[Fabian~Fahmüller, Dominik~Dethleffsen, Julian~Störig, Florian~Rößler],
       text(size: 34pt, style: "italic")[Hochschule München, München, Deutschland],
     )),
@@ -125,7 +117,7 @@
 
   Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
 
-  #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
+  Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.
 
   = Anforderungen
   - Unabhängig von Mobilfunk, Internet und Stromnetz
@@ -170,7 +162,7 @@
   / Managed Flooding: Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
   / Vorrang: Knoten mit schwachem Empfang senden zuerst. Sie liegen meist am Rand der Reichweite.
   / Duplikate: Eine schon weitergeleitete Nachricht wird nicht erneut gesendet.
-  / Hop-Limit: 3 Weiterleitungen, maximal 7 @meshtastic-lora.
+  / Hop-Limit: Eine Nachricht wird bis zu dreimal weitergeleitet @meshtastic-lora.
   / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg. Eine Zentrale gibt es nicht.
   / Verschlüsselung: AES mit Kanalschlüssel @meshtastic-enc.
 
