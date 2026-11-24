@@ -110,8 +110,18 @@
   #block(height: 4.5cm, columns(3, gutter: 2.5cm, bibliography("refs.bib", title: none, style: "ieee")))
 ]
 
-// Fünf Spalten, der Inhalt fließt automatisch von einer Spalte in die nächste
-#let spalten = columns(5, gutter: 2.5cm)[
+// Zwischentitel innerhalb eines Teils
+#let zwischen(titel) = block(above: 1.4cm, below: 0.6cm, text(weight: "bold", titel))
+
+// Abbildung neben Text
+#let nebeneinander(breite, links, rechts) = grid(
+  columns: (breite, 1fr),
+  column-gutter: 2cm,
+  align: horizon,
+  links, rechts,
+)
+
+#let teil-1 = [
   = Motivation
   Im Ernstfall fallen gewohnte Kommunikationswege aus:
   - BOS-Digitalfunk (TETRA) ausgefallen oder überlastet, z. B. bei Großschadenslagen
@@ -121,7 +131,7 @@
 
   #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
 
-  = Anforderungen
+  #zwischen[Anforderungen]
   - Unabhängig von Mobilfunk, Internet und Stromnetz
   - Dezentral/dynamisch und möglichst automatisch
   - Reichweite von mehreren Kilometern
@@ -133,31 +143,19 @@
   - Anzeige bei Sonne und Dunkelheit lesbar
   - Akkulaufzeit von mehreren Tagen
   - Robust, handlich und mobil
+]
 
+#let teil-2 = [
   = Lösungsansatz
   Akkubetriebene Handfunkgeräte bilden untereinander ein Netz. Dieses sogenannte "Mesh" wächst mit jedem weiteren Gerät.
 
   / Vernetzung: Im Mesh gibt es keine Zentrale. Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter.
   / Funk: Die Geräte übertragen per LoRa im lizenzfreien 868-MHz-Band. Das überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki.
   / Protokoll: Das Weiterleiten übernimmt Meshtastic, ein quelloffenes und verbreitetes Mesh-Protokoll @meshtastic-intro.
-  / Anzeige: Ein E-Paper-Display bleibt in der Sonne und im Licht der Stirnlampe lesbar. Es braucht nur beim Umschalten Strom.
 
-  = Systemaufbau
-  #figure(placement: auto,
-    image("bilder/commscube_mockup.png", width: 100%),
-    caption: [Entwurf des CommsCube mit E-Paper-Anzeige und Tastenfeld],
-  ) <abb-geraet>
-
-  / Rechner: nRF52840 (RAK4631) @rak4631
-  / Funk: LoRa-Chip SX1262, 868 MHz
-  / Anzeige: 4,2-Zoll-E-Paper, 400 × 300 px
-  / Bedienung: Große Tasten und seitliches Drehrad, auch mit Handschuhen
-  / Notfall: Versenkter Taster sendet eine Notfall-Meldung
-  / Energie: Li-Ionen-Akku, 10~000~mAh, 3,7~V
-
-  = Mesh-Routing
-  #figure(placement: auto,
-    block(stroke: 0.05cm + linie, width: 100%, inset: 1cm, align(center, mesh)),
+  #zwischen[Mesh-Routing]
+  #figure(
+    block(stroke: 0.05cm + linie, width: 26cm, inset: 1cm, align(center, mesh)),
     caption: [Nachricht von A nach B über drei Zwischenstationen],
   ) <abb-mesh>
 
@@ -165,39 +163,55 @@
   / Vorrang: Knoten mit schwachem Empfang senden zuerst. Sie liegen meist am Rand der Reichweite.
   / Duplikate: Eine schon weitergeleitete Nachricht wird nicht erneut gesendet.
   / Hop-Limit: 3 Weiterleitungen, maximal 7 @meshtastic-lora.
-  / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg. Eine Zentrale gibt es nicht.
+  / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
   / Verschlüsselung: AES mit Kanalschlüssel @meshtastic-enc.
+]
 
-  = Energiebedarf
-  #figure(placement: auto,
+#let teil-3 = [
+  = Ergebnis
+  #nebeneinander(
+    16cm,
+    [#figure(
+      image("bilder/commscube_mockup.png", width: 100%),
+      caption: [Entwurf des CommsCube],
+    ) <abb-geraet>],
+    [
+      / Rechner: nRF52840 (RAK4631) @rak4631
+      / Funk: LoRa-Chip SX1262, 868 MHz
+      / Anzeige: 4,2-Zoll-E-Paper, in Sonne und Dunkelheit lesbar
+      / Bedienung: Große Tasten und Drehrad
+      / Notfall: Versenkter Taster
+      / Energie: Li-Ionen-Akku, 10~000~mAh
+    ],
+  )
+
+  #zwischen[Energiebedarf]
+  Der interne Akku kann den Energiebedarf des Funkgerätes selbst bei dauerhafter Verwendung für 8 Tage decken (@abb-energie).
+
+  #figure(
     image("bilder/energie_laufzeit_rot.svg"),
     caption: read("bilder/energie_laufzeit.txt"),
   ) <abb-energie>
 
-  Der interne Akku kann den Energiebedarf des Funkgerätes selbst bei dauerhafter Verwendung für 8 Tage decken.
+  #zwischen[Versuch und Fazit]
+  Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus. Ein LoRa-Mesh auf Basis von Meshtastic eignet sich damit als einfaches Ersatzsystem für Textnachrichten.
 
-  = Ergebnisse
-  Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus.
-
-  #figure(placement: auto,
-    image("bilder/map_plus_logo.png", width: 55%),
-    caption: [Meshtastic-Knoten im Raum München (Platzhalter)],
-  )
-
-  = Fazit und Ausblick
-  Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.
-
-  Offen:
-  - Tests unter Einsatzbedingungen
-  - Fest verbauter oder externer Akku
-  - Messung des Energiebedarfs
+  Offen sind Tests unter Einsatzbedingungen, ein fest verbauter oder externer Akku und die Messung des Energiebedarfs.
 ]
 
-// Ganze Seite als Raster mit fester Höhe, damit die Spalten den Rest füllen
+// Drei Teile von links nach rechts, getrennt durch senkrechte Linien
+#let teile = grid(
+  columns: (1fr, 1fr, 1fr),
+  inset: (x, y) => (left: if x > 0 { 2.5cm } else { 0cm }, right: if x < 2 { 2.5cm } else { 0cm }),
+  stroke: (x, y) => if x > 0 { (left: 0.06cm + linie) },
+  teil-1, teil-2, teil-3,
+)
+
+// Ganze Seite als Raster mit fester Höhe
 #block(height: 100%, grid(
   rows: (auto, 1fr, auto),
   row-gutter: 1.5cm,
   kopf,
-  spalten,
+  teile,
   literatur,
 ))
