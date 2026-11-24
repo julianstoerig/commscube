@@ -51,7 +51,7 @@
   [
     #stack(
       spacing: 1cm,
-      text(size: 130pt, weight: "black")[Commscube],
+      text(size: 130pt, weight: "black")[CommsCube],
       text(size: 50pt, fill: grau)[Erreichbar, wenn die Netze schweigen],
       text(size: 30pt, fill: grau)[Fabian Fahmüller · Dominik Dethleffsen · Julian Störig · Florian Rößler],
     )
@@ -104,7 +104,7 @@
   column-gutter: 3cm,
   align: horizon,
   [
-    == Der Commscube
+    == Der CommsCube
     - 4,2-Zoll-E-Paper, auch in der Sonne lesbar und sparsam
     - Gespeicherte Nachrichten, wenn es schnell gehen muss
     - Tasten für Freitext
@@ -124,7 +124,7 @@
 ]
 #bereich[
   == Ersatzsystem für den Ernstfall
-  Der Commscube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
+  Der CommsCube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
 
   #gleich-hoch(
     fall,
