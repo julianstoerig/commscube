@@ -197,10 +197,13 @@
   - Der Akku hält auch im Dauerbetrieb mindestens 8 Tage (@abb-energie).
   - Am meisten verbraucht das dauerhaft laufende GNSS-Modul.
 
-  #figure(
-    image("bilder/energie_laufzeit_rot.svg"),
-    caption: read("bilder/energie_laufzeit.txt"),
-  ) <abb-energie>
+  #[
+    #show figure: set align(left)
+    #figure(
+      image("bilder/energie_laufzeit_rot_breit.svg"),
+      caption: read("bilder/energie_laufzeit.txt"),
+    ) <abb-energie>
+  ]
 
   == Ausblick
   - Tests unter Einsatzbedingungen und Messung des Energiebedarfs.
