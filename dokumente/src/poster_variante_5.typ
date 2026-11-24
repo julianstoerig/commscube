@@ -134,15 +134,16 @@
 
   == Anforderungen
   - Funktioniert ohne Mobilfunk, Internet und Stromnetz.
-  - Arbeitet dezentral und möglichst automatisch.
   - Reicht mehrere Kilometer weit.
-  - Ist lizenzfrei und ohne Anmeldung nutzbar.
   - Sendet Freitext, gespeicherte Nachrichten und Notfall-Meldungen auf Knopfdruck.
-  - Überträgt verschlüsselt.
   - Ist ohne Funkausbildung und mit Handschuhen bedienbar.
   - Bleibt bei Sonne und Dunkelheit lesbar.
   - Läuft mehrere Tage mit einer Akkuladung.
-  - Ist robust, handlich und mobil.
+
+  #figure(
+    image("bilder/commscube_mockup.png", width: 14cm),
+    caption: [Entwurf des CommsCube],
+  ) <abb-geraet>
 ]
 
 #let teil-2 = [
@@ -153,44 +154,30 @@
 
   == Mesh-Routing
   #nebeneinander(
-    21cm,
+    16.5cm,
     bild-rechts: true,
     [#figure(
-      block(stroke: 0.05cm + linie, inset: 1cm, scale(85%, reflow: true, mesh)),
+      block(stroke: 0.05cm + linie, inset: 1cm, scale(65%, reflow: true, mesh)),
       caption: [Nachricht von A nach B über drei Zwischenstationen],
     ) <abb-mesh>],
     [
       - Jeder Knoten sendet eine Nachricht einmal weiter @meshtastic-algo.
-      - Knoten am Rand der Reichweite senden zuerst.
-      - Doppelte Nachrichten werden verworfen.
       - Eine Nachricht wird bis zu dreimal weitergeleitet @meshtastic-lora.
+      - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
+      - AES verschlüsselt jede Nachricht @meshtastic-enc.
     ],
   )
-  - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
-  - AES mit Kanalschlüssel verschlüsselt jede Nachricht @meshtastic-enc.
 
   == Systemaufbau
-  #nebeneinander(
-    12cm,
-    [#figure(
-      image("bilder/commscube_mockup.png", width: 100%),
-      caption: [Entwurf des CommsCube],
-    ) <abb-geraet>],
-    [
-      - Rechner nRF52840 (RAK4631) @rak4631.
-      - LoRa-Chip SX1262, lizenzfrei bei 868 MHz @lora-wiki.
-      - Meshtastic als quelloffenes Protokoll @meshtastic-intro.
-      - E-Paper-Anzeige mit 4,2 Zoll.
-      - Große Tasten, Drehrad und versenkter Notfall-Taster.
-      - Li-Ionen-Akku mit 10~000~mAh.
-    ],
-  )
+  - Kernmodul RAK4631 mit LoRa-Funk im lizenzfreien 868-MHz-Band @rak4631 @lora-wiki.
+  - Meshtastic als quelloffenes Protokoll @meshtastic-intro.
+  - E-Paper-Anzeige mit 4,2 Zoll.
+  - Große Tasten, Drehrad und versenkter Notfall-Taster.
+  - Li-Ionen-Akku mit 10~000~mAh.
 ]
 
 #let teil-3 = [
   = Ergebnis
-  Der CommsCube ist ein Handfunkgerät für Textnachrichten, das mit jedem Meshtastic-Gerät kommuniziert.
-
   #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
 
   == Versuch
@@ -212,13 +199,12 @@
 
   == Ausblick
   - Tests unter Einsatzbedingungen und Messung des Energiebedarfs.
-  - Entscheidung zwischen fest verbautem und externem Akku.
 ]
 
 // Drei Teile von links nach rechts, getrennt durch senkrechte Linien
 // Motivation braucht am wenigsten Platz
 #let teile = grid(
-  columns: (0.75fr, 1.15fr, 1.1fr),
+  columns: (0.85fr, 1.05fr, 1.1fr),
   inset: (x, y) => (left: if x > 0 { 2.5cm } else { 0cm }, right: if x < 2 { 2.5cm } else { 0cm }),
   stroke: (x, y) => if x > 0 { (left: 0.06cm + linie) },
   teil-1, teil-2, teil-3,
