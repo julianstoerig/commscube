@@ -31,7 +31,9 @@
   [#text(fill: akzent, counter(heading).display(it.numbering)) #h(0.4em) #it.body],
 )
 
-#set list(marker: [–], body-indent: 0.6em, spacing: 0.7em)
+// Aufzählungszeichen: rotes Dreieck
+#let dreieck = box(baseline: -0.12em, polygon(fill: akzent, (0em, 0em), (0.55em, 0.3em), (0em, 0.6em)))
+#set list(marker: dreieck, body-indent: 0.6em, spacing: 0.7em)
 #show list: set par(justify: false)
 
 // Bildunterschrift mit fetter Kennung, z. B. „Abbildung 1:“
@@ -41,9 +43,6 @@
   set par(justify: false)
   [#strong[#it.supplement #context it.counter.display(it.numbering):] #it.body]
 }
-// Begriffe fett mit Doppelpunkt, jeder Eintrag als eigener Absatz
-#show terms.item: it => block(above: 0.7em, below: 0.7em)[#strong[#it.term:] #it.description]
-#show terms: set par(justify: false)
 
 // Hervorgehobener Kernsatz mit Akzentlinie links
 #let kern(inhalt) = block(
@@ -125,7 +124,7 @@
 )
 
 // Aufbau jedes Teils: kurze Einleitung als Fließtext, eine Kernaussage,
-// danach Einzelheiten unter Zwischentiteln als Begriffsliste.
+// danach Einzelheiten unter Zwischentiteln als Aufzählung ganzer Sätze oder Satzteile.
 
 #let teil-1 = [
   = Motivation
@@ -134,16 +133,16 @@
   #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
 
   #zwischen[Anforderungen]
-  / Unabhängig: ohne Mobilfunk, Internet und Stromnetz
-  / Dezentral: ohne Zentrale, möglichst automatisch
-  / Reichweite: mehrere Kilometer
-  / Lizenzfrei: nutzbar ohne Anmeldung
-  / Nachrichten: Freitext, gespeicherte Nachrichten und Notfall-Meldung auf Knopfdruck
-  / Sicher: verschlüsselte Übertragung
-  / Bedienung: ohne Funkausbildung, auch mit Handschuhen
-  / Anzeige: bei Sonne und Dunkelheit lesbar
-  / Laufzeit: mehrere Tage mit einer Akkuladung
-  / Bauform: robust, handlich und mobil
+  - Funktioniert ohne Mobilfunk, Internet und Stromnetz.
+  - Arbeitet dezentral und möglichst automatisch.
+  - Reicht mehrere Kilometer weit.
+  - Ist lizenzfrei und ohne Anmeldung nutzbar.
+  - Sendet Freitext, gespeicherte Nachrichten und Notfall-Meldungen auf Knopfdruck.
+  - Überträgt verschlüsselt.
+  - Ist ohne Funkausbildung und mit Handschuhen bedienbar.
+  - Bleibt bei Sonne und Dunkelheit lesbar.
+  - Läuft mehrere Tage mit einer Akkuladung.
+  - Ist robust, handlich und mobil.
 ]
 
 #let teil-2 = [
@@ -153,21 +152,21 @@
   #kern[Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter. Eine Zentrale gibt es nicht.]
 
   #zwischen[Technik]
-  / Funk: LoRa im lizenzfreien 868-MHz-Band, überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki
-  / Protokoll: Meshtastic, ein quelloffenes und verbreitetes Mesh-Protokoll @meshtastic-intro
+  - LoRa im lizenzfreien 868-MHz-Band überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki.
+  - Das quelloffene und verbreitete Protokoll Meshtastic übernimmt das Weiterleiten @meshtastic-intro.
 
   #zwischen[Mesh-Routing]
   #figure(
-    block(stroke: 0.05cm + linie, width: 26cm, inset: 1cm, align(center, mesh)),
+    block(stroke: 0.05cm + linie, inset: 1cm, scale(85%, reflow: true, mesh)),
     caption: [Nachricht von A nach B über drei Zwischenstationen],
   ) <abb-mesh>
 
-  / Managed Flooding: Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
-  / Vorrang: Knoten mit schwachem Empfang senden zuerst. Sie liegen meist am Rand der Reichweite.
-  / Duplikate: Eine schon weitergeleitete Nachricht wird nicht erneut gesendet.
-  / Hop-Limit: 3 Weiterleitungen, maximal 7 @meshtastic-lora.
-  / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
-  / Verschlüsselung: AES mit Kanalschlüssel @meshtastic-enc.
+  - Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
+  - Knoten mit schwachem Empfang senden zuerst, da sie meist am Rand der Reichweite liegen.
+  - Schon weitergeleitete Nachrichten werden nicht erneut gesendet.
+  - Eine Nachricht wird höchstens dreimal weitergeleitet, einstellbar bis siebenmal @meshtastic-lora.
+  - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
+  - AES mit Kanalschlüssel verschlüsselt jede Nachricht @meshtastic-enc.
 ]
 
 #let teil-3 = [
@@ -184,12 +183,12 @@
       caption: [Entwurf des CommsCube],
     ) <abb-geraet>],
     [
-      / Rechner: nRF52840 (RAK4631) @rak4631
-      / Funk: LoRa-Chip SX1262, 868 MHz
-      / Anzeige: 4,2-Zoll-E-Paper
-      / Bedienung: große Tasten und Drehrad
-      / Notfall: versenkter Taster
-      / Akku: Li-Ionen, 10~000~mAh, 3,7~V
+      - Rechner nRF52840 (RAK4631) @rak4631.
+      - LoRa-Chip SX1262 für 868 MHz.
+      - E-Paper-Anzeige mit 4,2 Zoll.
+      - Große Tasten und Drehrad.
+      - Versenkter Taster für Notfall-Meldungen.
+      - Li-Ionen-Akku mit 10~000~mAh.
     ],
   )
 
@@ -201,14 +200,14 @@
       caption: read("bilder/energie_laufzeit.txt"),
     ) <abb-energie>],
     [
-      / Laufzeit: mindestens 8 Tage, auch im Dauerbetrieb (@abb-energie)
-      / Größter Verbraucher: GNSS-Modul im Dauerbetrieb
+      - Der Akku hält auch im Dauerbetrieb mindestens 8 Tage (@abb-energie).
+      - Am meisten verbraucht das dauerhaft laufende GNSS-Modul.
     ],
   )
 
   #zwischen[Ausblick]
-  / Tests: unter Einsatzbedingungen, mit gemessenem Energiebedarf
-  / Akku: fest verbaut oder extern
+  - Tests unter Einsatzbedingungen und Messung des Energiebedarfs.
+  - Entscheidung zwischen fest verbautem und externem Akku.
 ]
 
 // Drei Teile von links nach rechts, getrennt durch senkrechte Linien
