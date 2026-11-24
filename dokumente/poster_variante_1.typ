@@ -65,7 +65,7 @@
   )
   let kanten = ((0, 1), (0, 2), (1, 3), (2, 3), (2, 4), (3, 5), (3, 6), (4, 6), (5, 7), (6, 7), (6, 8), (4, 8))
   let weg = ((0, 2), (2, 3), (3, 6), (6, 8))
-  let e = 0.7cm
+  let e = 0.45cm
   box(width: 36 * e, height: 20 * e, {
     for (a, b) in kanten {
       let aktiv = weg.contains((a, b))
@@ -100,42 +100,60 @@
     - ESP32-S3 mit LoRa-Modul SX1276
     - Kompatibel mit dem offenen Meshtastic-Netz
   ],
-  figure(tafel(image("bilder/commscube_mockup.png", width: 21cm)), caption: [Entwurf]),
+  figure(tafel(image("bilder/commscube_mockup.png", width: 17cm)), caption: [Entwurf]),
 )
 
-#v(1.6cm)
+#v(1cm)
 
-// Zweck, untere Drittellinie
-== Ersatzsystem für den Ernstfall
-Der CommsCube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
-
+// Zweck links, Energiebedarf rechts, untere Drittellinie
 #let fall(titel, t, hoehe: auto) = block(fill: white, width: 100%, height: hoehe, inset: (x: 1.5cm, y: 1.3cm), radius: 1cm)[
   #block(below: 0.9em, text(size: 36pt, weight: "bold", titel))
   #t
 ]
-// Gleich hohe Karten, Höhe richtet sich nach der längsten
 #let faelle = (
   ([Großschadenslage], [Fällt der BOS-Digitalfunk aus, bleiben Einsatzkräfte erreichbar.]),
   ([Blackout], [Hilfsstationen halten Kontakt, auch ohne Stromnetz.]),
   ([Einsatzlogistik], [Material und Verpflegung abstimmen, ohne den Einsatzfunk zu belegen.]),
   ([Helfer vor Ort], [Einfach genug für Freiwillige ohne Funkausbildung.]),
 )
-#layout(groesse => {
-  let abstand = 1.5cm
-  let breite = (groesse.width - abstand * (faelle.len() - 1)) / faelle.len()
-  let hoehe = calc.max(..faelle.map(((t, b)) => measure(fall(t, b), width: breite).height))
-  grid(
-    columns: (1fr,) * faelle.len(),
-    column-gutter: abstand,
-    ..faelle.map(((t, b)) => fall(t, b, hoehe: hoehe)),
-  )
-})
 
-#v(2.6cm)
+#grid(
+  columns: (1fr, 1fr),
+  column-gutter: 3cm,
+  [
+    == Ersatzsystem für den Ernstfall
+    Der CommsCube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
+
+    // Karten im 2×2-Raster, alle so hoch wie die längste
+    #layout(groesse => {
+      let abstand = 1.5cm
+      let breite = (groesse.width - abstand) / 2
+      let hoehe = calc.max(..faelle.map(((t, b)) => measure(fall(t, b), width: breite).height))
+      grid(
+        columns: (1fr, 1fr),
+        gutter: abstand,
+        ..faelle.map(((t, b)) => fall(t, b, hoehe: hoehe)),
+      )
+    })
+  ],
+  [
+    == Energiebedarf
+    Der CommsCube verfügt über einen internen Akku, der mehrere Tage autarker Kommunikation gewährleistet:
+    - Bereitschaft: rund 7 Wochen
+    - Ernstfall: rund 8 Tage
+
+    #block(fill: white, width: 100%, inset: 1.5cm, radius: 1cm, figure(
+      image("bilder/energie_laufzeit_gruen.svg"),
+      caption: read("bilder/energie_laufzeit.txt"),
+    ))
+  ],
+)
+
+#v(1cm)
 
 // Technik, unterer Bereich
 // Text und Bilder in getrennten Zeilen, damit beide Bilder auf gleicher Höhe beginnen
-#let bildhoehe = 17cm
+#let bildhoehe = 10cm
 #grid(
   columns: (1fr, 1fr),
   column-gutter: 3cm,
