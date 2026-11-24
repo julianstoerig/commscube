@@ -118,40 +118,43 @@
   columns: (breite, 1fr),
   column-gutter: 2cm,
   align: horizon,
-  links, rechts,
+  links, {
+    set par(justify: false)
+    rechts
+  },
 )
+
+// Aufbau jedes Teils: kurze Einleitung als Fließtext, eine Kernaussage,
+// danach Einzelheiten unter Zwischentiteln als Begriffsliste.
 
 #let teil-1 = [
   = Motivation
-  Im Ernstfall fallen gewohnte Kommunikationswege aus:
-  - BOS-Digitalfunk (TETRA) ausgefallen oder überlastet, z. B. bei Großschadenslagen
-  - Mobilfunk und Internet hängen am Stromnetz
-
-  Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
+  Im Ernstfall fallen gewohnte Kommunikationswege aus. Der BOS-Digitalfunk (TETRA) ist bei Großschadenslagen ausgefallen oder überlastet, Mobilfunk und Internet hängen am Stromnetz. Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
 
   #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
 
   #zwischen[Anforderungen]
-  - Unabhängig von Mobilfunk, Internet und Stromnetz
-  - Dezentral/dynamisch und möglichst automatisch
-  - Reichweite von mehreren Kilometern
-  - Lizenzfrei nutzbar, ohne Anmeldung
-  - Freitext und gespeicherte Nachrichten
-  - Notfall-Meldung auf Knopfdruck
-  - Verschlüsselte Übertragung
-  - Einfache Bedienung ohne Funkausbildung, auch mit Handschuhen
-  - Anzeige bei Sonne und Dunkelheit lesbar
-  - Akkulaufzeit von mehreren Tagen
-  - Robust, handlich und mobil
+  / Unabhängig: ohne Mobilfunk, Internet und Stromnetz
+  / Dezentral: ohne Zentrale, möglichst automatisch
+  / Reichweite: mehrere Kilometer
+  / Lizenzfrei: nutzbar ohne Anmeldung
+  / Nachrichten: Freitext, gespeicherte Nachrichten und Notfall-Meldung auf Knopfdruck
+  / Sicher: verschlüsselte Übertragung
+  / Bedienung: ohne Funkausbildung, auch mit Handschuhen
+  / Anzeige: bei Sonne und Dunkelheit lesbar
+  / Laufzeit: mehrere Tage mit einer Akkuladung
+  / Bauform: robust, handlich und mobil
 ]
 
 #let teil-2 = [
   = Lösungsansatz
   Akkubetriebene Handfunkgeräte bilden untereinander ein Netz. Dieses sogenannte "Mesh" wächst mit jedem weiteren Gerät.
 
-  / Vernetzung: Im Mesh gibt es keine Zentrale. Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter.
-  / Funk: Die Geräte übertragen per LoRa im lizenzfreien 868-MHz-Band. Das überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki.
-  / Protokoll: Das Weiterleiten übernimmt Meshtastic, ein quelloffenes und verbreitetes Mesh-Protokoll @meshtastic-intro.
+  #kern[Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter. Eine Zentrale gibt es nicht.]
+
+  #zwischen[Technik]
+  / Funk: LoRa im lizenzfreien 868-MHz-Band, überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki
+  / Protokoll: Meshtastic, ein quelloffenes und verbreitetes Mesh-Protokoll @meshtastic-intro
 
   #zwischen[Mesh-Routing]
   #figure(
@@ -169,8 +172,13 @@
 
 #let teil-3 = [
   = Ergebnis
+  Der CommsCube ist ein Handfunkgerät für Textnachrichten, das mit jedem Meshtastic-Gerät kommuniziert. Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus.
+
+  #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
+
+  #zwischen[Systemaufbau]
   #nebeneinander(
-    16cm,
+    12cm,
     [#figure(
       image("bilder/commscube_mockup.png", width: 100%),
       caption: [Entwurf des CommsCube],
@@ -178,30 +186,35 @@
     [
       / Rechner: nRF52840 (RAK4631) @rak4631
       / Funk: LoRa-Chip SX1262, 868 MHz
-      / Anzeige: 4,2-Zoll-E-Paper, in Sonne und Dunkelheit lesbar
-      / Bedienung: Große Tasten und Drehrad
-      / Notfall: Versenkter Taster
-      / Energie: Li-Ionen-Akku, 10~000~mAh
+      / Anzeige: 4,2-Zoll-E-Paper
+      / Bedienung: große Tasten und Drehrad
+      / Notfall: versenkter Taster
+      / Akku: Li-Ionen, 10~000~mAh, 3,7~V
     ],
   )
 
   #zwischen[Energiebedarf]
-  Der interne Akku kann den Energiebedarf des Funkgerätes selbst bei dauerhafter Verwendung für 8 Tage decken (@abb-energie).
+  #nebeneinander(
+    20.6cm,
+    [#figure(
+      image("bilder/energie_laufzeit_rot.svg"),
+      caption: read("bilder/energie_laufzeit.txt"),
+    ) <abb-energie>],
+    [
+      / Laufzeit: mindestens 8 Tage, auch im Dauerbetrieb (@abb-energie)
+      / Größter Verbraucher: GNSS-Modul im Dauerbetrieb
+    ],
+  )
 
-  #figure(
-    image("bilder/energie_laufzeit_rot.svg"),
-    caption: read("bilder/energie_laufzeit.txt"),
-  ) <abb-energie>
-
-  #zwischen[Versuch und Fazit]
-  Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus. Ein LoRa-Mesh auf Basis von Meshtastic eignet sich damit als einfaches Ersatzsystem für Textnachrichten.
-
-  Offen sind Tests unter Einsatzbedingungen, ein fest verbauter oder externer Akku und die Messung des Energiebedarfs.
+  #zwischen[Ausblick]
+  / Tests: unter Einsatzbedingungen, mit gemessenem Energiebedarf
+  / Akku: fest verbaut oder extern
 ]
 
 // Drei Teile von links nach rechts, getrennt durch senkrechte Linien
+// Motivation braucht weniger Platz als das Ergebnis
 #let teile = grid(
-  columns: (1fr, 1fr, 1fr),
+  columns: (0.8fr, 1fr, 1.2fr),
   inset: (x, y) => (left: if x > 0 { 2.5cm } else { 0cm }, right: if x < 2 { 2.5cm } else { 0cm }),
   stroke: (x, y) => if x > 0 { (left: 0.06cm + linie) },
   teil-1, teil-2, teil-3,
