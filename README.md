@@ -3,10 +3,11 @@ a simple mesh radio using text over LoRa
 
 # Struktur
 
-- `dokumente/` Typst-Dateien mit PDFs, Bilder unter `bilder/`
+- `dokumente/src/` Typst-Dateien, Bilder, Notebook und Stückliste
+- `dokumente/artefacts/` fertige PDFs
 - `firmware/` ESP32-Firmware
 
-Kompiliert wird in `dokumente/`, etwa mit `typst compile folien.typ`.
+Kompilieren aus `dokumente/`, etwa mit `typst compile src/folien.typ artefacts/folien.pdf`.
 
 # alternative names
 - NotKubi
