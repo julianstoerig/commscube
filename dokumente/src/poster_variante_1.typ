@@ -46,6 +46,9 @@
 
 #show heading.where(level: 2): set text(size: 54pt, hyphenate: false)
 #show heading.where(level: 2): set block(below: 1.2cm)
+#show heading.where(level: 3): set text(size: 42pt)
+#show heading.where(level: 3): set block(above: 0pt, below: 35pt)
+#show title: set text(size: 130pt, weight: "black")
 
 #set list(
   marker: circle(radius: 0.35cm, fill: akzent),
@@ -64,7 +67,7 @@
   [
     #stack(
       spacing: 1cm,
-      text(size: 130pt, weight: "black")[CommsCube],
+      title[CommsCube],
       text(size: 50pt, fill: grau)[Erreichbar, wenn die Netze schweigen],
       text(size: 30pt, fill: grau)[Fabian Fahmüller · Dominik Dethleffsen · Julian Störig · Florian Rößler],
     )
@@ -148,7 +151,7 @@
       columns: (1fr, 1fr),
       column-gutter: 2cm,
       row-gutter: 4cm,
-      ..faelle.map(((titel, t)) => [#block(above: 0pt, below: 1em, text(size: 42pt, weight: "bold", titel)) #t]),
+      ..faelle.map(((titel, t)) => [#heading(level: 3, titel) #t]),
     )
   ], none, false),
   (gestreckt => [

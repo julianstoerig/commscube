@@ -47,8 +47,7 @@
 // Begriffe als kursive Zwischenüberschrift im Fließtext (IEEE-Ebene 3)
 #show terms.item: it => par(first-line-indent: 0em)[#emph[#it.term:] #it.description]
 
-// Kernaussagen ohne Hervorhebung, wie normaler Absatz
-#let kern(inhalt) = par(inhalt)
+#show title: set text(size: 80pt, weight: "regular")
 
 // Zusammenfassung und Schlüsselwörter mit fett-kursivem Einstieg
 #let zusammenfassung = {
@@ -70,7 +69,7 @@
     hm-logo,
     align(center, stack(
       spacing: 1.2cm,
-      text(size: 80pt)[CommsCube: Infrastrukturunabhängiger Textfunk als Ersatzsystem für den Ernstfall],
+      title[CommsCube: Infrastrukturunabhängiger Textfunk als Ersatzsystem für den Ernstfall],
       text(size: 40pt)[Fabian~Fahmüller, Dominik~Dethleffsen, Julian~Störig, Florian~Rößler],
       text(size: 34pt, style: "italic")[Hochschule München, München, Deutschland],
     )),
@@ -125,7 +124,7 @@
 
   Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
 
-  #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
+  Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.
 
   = Anforderungen
   - Unabhängig von Mobilfunk, Internet und Stromnetz

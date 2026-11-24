@@ -26,6 +26,12 @@
 
 // Aufzählungszeichen: rotes Dreieck
 #let dreieck = box(baseline: -0.12em, polygon(fill: akzent, (0em, 0em), (0.55em, 0.3em), (0em, 0.6em)))
+#show title: set text(size: 120pt, weight: "bold")
+
+// Zwischentitel innerhalb eines Teils, ohne Nummer
+#show heading.where(level: 2): set text(size: 38pt)
+#show heading.where(level: 2): it => block(above: 1.4cm, below: 0.6cm, it.body)
+
 #set list(marker: dreieck, body-indent: 0.6em, spacing: 0.7em)
 #show list: set par(justify: false)
 
@@ -57,7 +63,7 @@
       set par(justify: false)
       stack(
         spacing: 1.2cm,
-        text(size: 120pt, weight: "bold")[CommsCube],
+        title[CommsCube],
         text(size: 58pt, style: "italic")[Infrastruktur-unabhängiger Textfunk als Ersatzsystem für den Ernstfall],
         text(size: 36pt, fill: grau)[Fabian~Fahmüller · Dominik~Dethleffsen · Julian~Störig · Florian~Rößler \ Hochschule München],
       )
@@ -102,8 +108,6 @@
   #block(height: 6cm, columns(4, gutter: 2.5cm, bibliography("refs.bib", title: none, style: "ieee")))
 ]
 
-// Zwischentitel innerhalb eines Teils
-#let zwischen(titel) = block(above: 1.4cm, below: 0.6cm, text(weight: "bold", titel))
 
 // Abbildung neben Text
 #let nebeneinander(breite, links, rechts) = grid(
@@ -125,7 +129,7 @@
 
   #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
 
-  #zwischen[Anforderungen]
+  == Anforderungen
   - Funktioniert ohne Mobilfunk, Internet und Stromnetz.
   - Arbeitet dezentral und möglichst automatisch.
   - Reicht mehrere Kilometer weit.
@@ -144,7 +148,7 @@
 
   #kern[Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter. Eine Zentrale gibt es nicht.]
 
-  #zwischen[Mesh-Routing]
+  == Mesh-Routing
   #nebeneinander(
     21cm,
     [#figure(
@@ -161,7 +165,7 @@
   - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
   - AES mit Kanalschlüssel verschlüsselt jede Nachricht @meshtastic-enc.
 
-  #zwischen[Systemaufbau]
+  == Systemaufbau
   #nebeneinander(
     12cm,
     [#figure(
@@ -185,7 +189,7 @@
 
   #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
 
-  #zwischen[Versuch]
+  == Versuch
   #nebeneinander(
     23cm,
     [#figure(
@@ -197,7 +201,7 @@
     ],
   )
 
-  #zwischen[Energiebedarf]
+  == Energiebedarf
   #nebeneinander(
     20.6cm,
     [#figure(
@@ -210,7 +214,7 @@
     ],
   )
 
-  #zwischen[Ausblick]
+  == Ausblick
   - Tests unter Einsatzbedingungen und Messung des Energiebedarfs.
   - Entscheidung zwischen fest verbautem und externem Akku.
 ]

@@ -33,6 +33,9 @@
 
 #show heading.where(level: 2): set text(size: 54pt, hyphenate: false)
 #show heading.where(level: 2): set block(below: 1.2cm)
+#show heading.where(level: 3): set text(size: 36pt)
+#show heading.where(level: 3): set block(above: 0pt, below: 28.8pt)
+#show title: set text(size: 130pt, weight: "black")
 
 #set list(
   marker: circle(radius: 0.35cm, fill: akzent),
@@ -51,7 +54,7 @@
   [
     #stack(
       spacing: 1cm,
-      text(size: 130pt, weight: "black")[CommsCube],
+      title[CommsCube],
       text(size: 50pt, fill: grau)[Erreichbar, wenn die Netze schweigen],
       text(size: 30pt, fill: grau)[Fabian Fahmüller · Dominik Dethleffsen · Julian Störig · Florian Rößler],
     )
@@ -119,7 +122,7 @@
 
 // Zweck, untere Drittellinie
 #let fall((titel, t), hoehe: auto) = block(fill: hintergrund, width: 100%, height: hoehe, inset: (x: 1.5cm, y: 1.3cm), radius: 1cm)[
-  #block(below: 0.9em, text(size: 36pt, weight: "bold", titel))
+  #heading(level: 3, titel)
   #t
 ]
 #bereich[

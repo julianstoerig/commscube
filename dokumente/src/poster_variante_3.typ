@@ -31,6 +31,8 @@
   [#text(fill: akzent, counter(heading).display(it.numbering)) #h(0.4em) #it.body],
 )
 
+#show title: set text(size: 120pt, weight: "bold")
+
 #set list(marker: [–], body-indent: 0.6em, spacing: 0.7em)
 #show list: set par(justify: false)
 
@@ -65,7 +67,7 @@
       set par(justify: false)
       stack(
         spacing: 1.2cm,
-        text(size: 120pt, weight: "bold")[CommsCube],
+        title[CommsCube],
         text(size: 58pt, style: "italic")[Infrastruktur-unabhängiger Textfunk als Ersatzsystem für den Ernstfall],
         text(size: 36pt, fill: grau)[Fabian~Fahmüller · Dominik~Dethleffsen · Julian~Störig · Florian~Rößler \ Hochschule München],
       )
