@@ -109,16 +109,19 @@
 ]
 
 
-// Abbildung neben Text
-#let nebeneinander(breite, links, rechts) = grid(
-  columns: (breite, 1fr),
-  column-gutter: 2cm,
-  align: horizon,
-  links, {
+// Abbildung neben Text, wahlweise rechts vom Text
+#let nebeneinander(breite, bild, text, bild-rechts: false) = {
+  let text = {
     set par(justify: false)
-    rechts
-  },
-)
+    text
+  }
+  grid(
+    columns: if bild-rechts { (1fr, breite) } else { (breite, 1fr) },
+    column-gutter: 2cm,
+    align: horizon,
+    ..if bild-rechts { (text, bild) } else { (bild, text) },
+  )
+}
 
 // Aufbau jedes Teils: kurze Einleitung als Fließtext, eine Kernaussage,
 // danach Einzelheiten unter Zwischentiteln als Aufzählung ganzer Sätze oder Satzteile.
@@ -151,6 +154,7 @@
   == Mesh-Routing
   #nebeneinander(
     21cm,
+    bild-rechts: true,
     [#figure(
       block(stroke: 0.05cm + linie, inset: 1cm, scale(85%, reflow: true, mesh)),
       caption: [Nachricht von A nach B über drei Zwischenstationen],
@@ -190,29 +194,21 @@
   #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
 
   == Versuch
-  #nebeneinander(
-    23cm,
-    [#figure(
-      image("bilder/map_plus_logo.png", width: 100%),
-      caption: [Meshtastic-Knoten im Raum München (Platzhalter)],
-    ) <abb-karte>],
-    [
-      - Zwei eigene Knoten und ein handelsübliches Meshtastic-Gerät tauschen Nachrichten über das Mesh aus.
-    ],
-  )
+  - Zwei eigene Knoten und ein handelsübliches Meshtastic-Gerät tauschen Nachrichten über das Mesh aus.
+
+  #figure(
+    image("bilder/map_plus_logo.png", width: 23cm),
+    caption: [Meshtastic-Knoten im Raum München (Platzhalter)],
+  ) <abb-karte>
 
   == Energiebedarf
-  #nebeneinander(
-    20.6cm,
-    [#figure(
-      image("bilder/energie_laufzeit_rot.svg"),
-      caption: read("bilder/energie_laufzeit.txt"),
-    ) <abb-energie>],
-    [
-      - Der Akku hält auch im Dauerbetrieb mindestens 8 Tage (@abb-energie).
-      - Am meisten verbraucht das dauerhaft laufende GNSS-Modul.
-    ],
-  )
+  - Der Akku hält auch im Dauerbetrieb mindestens 8 Tage (@abb-energie).
+  - Am meisten verbraucht das dauerhaft laufende GNSS-Modul.
+
+  #figure(
+    image("bilder/energie_laufzeit_rot.svg"),
+    caption: read("bilder/energie_laufzeit.txt"),
+  ) <abb-energie>
 
   == Ausblick
   - Tests unter Einsatzbedingungen und Messung des Energiebedarfs.
