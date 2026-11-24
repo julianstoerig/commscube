@@ -9,13 +9,6 @@
 
 #set page(paper: "a0", flipped: true, margin: (x: 3.5cm, top: 3cm, bottom: 3.5cm), fill: white)
 
-// Drittelraster zur Kontrolle: typst compile --input raster=1 poster_variante_5.typ
-#set page(foreground: if sys.inputs.at("raster", default: "0") == "1" {
-  for f in (1 / 3, 2 / 3) {
-    place(line(start: (f * 100%, 0%), end: (f * 100%, 100%), stroke: 0.15cm + red))
-    place(line(start: (0%, f * 100%), end: (100%, f * 100%), stroke: 0.15cm + red))
-  }
-})
 #set text(lang: "de", size: 38pt, font: "Libertinus Serif", fill: dunkel)
 #set par(justify: true, leading: 0.55em, spacing: 0.9em)
 
