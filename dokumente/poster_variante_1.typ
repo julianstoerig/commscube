@@ -4,8 +4,33 @@
 #let grau = rgb("#5b6675")
 #let hintergrund = rgb("#F2F5F3")
 
-// Weiße Fläche, hebt Abbildungen vom Hintergrund ab
-#let tafel(inhalt) = block(fill: white, inset: 1.2cm, radius: 1cm, inhalt)
+// Jeder Abschnitt auf einer weißen Fläche, Bildunterschrift darunter
+#let bereich(inhalt, unterschrift: none, hoehe: auto, flaeche: true) = {
+  let flaeche = if flaeche {
+    block(fill: white, width: 100%, height: hoehe, inset: 1.6cm, radius: 1cm, inhalt)
+  } else {
+    // Gleicher Abstand oben wie in einer Fläche, damit Überschriften auf einer Höhe liegen
+    block(width: 100%, height: hoehe, inset: (top: 1.6cm), inhalt)
+  }
+  if unterschrift == none { flaeche } else { figure(flaeche, caption: unterschrift) }
+}
+
+// Zwei Abschnitte nebeneinander, gleich hoch. Je Abschnitt: (inhalt, unterschrift, mit Fläche).
+// inhalt ist eine Funktion: sie bekommt "gestreckt" und kann dann Platz mit v(1fr) füllen.
+#let paar(abstand: 1.5cm, ..abschnitte) = layout(groesse => {
+  let abschnitte = abschnitte.pos()
+  let breite = (groesse.width - abstand) / 2
+  let hoehe = calc.max(..abschnitte.map(((inhalt, _, flaeche)) => measure(
+    block(width: breite, inset: if flaeche { 1.6cm } else { (top: 1.6cm) }, inhalt(false)),
+  ).height))
+  grid(
+    columns: (1fr, 1fr),
+    column-gutter: abstand,
+    ..abschnitte.map(((inhalt, unterschrift, flaeche)) => bereich(
+      inhalt(true), unterschrift: unterschrift, hoehe: hoehe, flaeche: flaeche,
+    )),
+  )
+})
 
 #set page(paper: "a0", margin: 4cm, fill: hintergrund)
 
@@ -65,7 +90,7 @@
   )
   let kanten = ((0, 1), (0, 2), (1, 3), (2, 3), (2, 4), (3, 5), (3, 6), (4, 6), (5, 7), (6, 7), (6, 8), (4, 8))
   let weg = ((0, 2), (2, 3), (3, 6), (6, 8))
-  let e = 0.45cm
+  let e = 0.38cm
   box(width: 36 * e, height: 20 * e, {
     for (a, b) in kanten {
       let aktiv = weg.contains((a, b))
@@ -86,8 +111,8 @@
   })
 }
 
-// Gerät, oberer Schnittpunkt rechts
-#grid(
+// Gerät, oberer Schnittpunkt rechts, Fläche über beide Spalten
+#bereich(unterschrift: [Entwurf], grid(
   columns: (1fr, 1fr),
   column-gutter: 3cm,
   align: horizon,
@@ -100,16 +125,12 @@
     - RAK4631 mit nRF52840 und LoRa-Chip SX1262
     - Kompatibel mit dem offenen Meshtastic-Netz
   ],
-  figure(tafel(image("bilder/commscube_mockup.png", width: 17cm)), caption: [Entwurf]),
-)
+  align(center, image("bilder/commscube_mockup.png", width: 13cm)),
+))
 
 #v(1cm)
 
 // Zweck links, Energiebedarf rechts, untere Drittellinie
-#let fall(titel, t, hoehe: auto) = block(fill: white, width: 100%, height: hoehe, inset: (x: 1.5cm, y: 1.3cm), radius: 1cm)[
-  #block(below: 0.9em, text(size: 36pt, weight: "bold", titel))
-  #t
-]
 #let faelle = (
   ([Großschadenslage], [Fällt der BOS-Digitalfunk aus, bleiben Einsatzkräfte erreichbar.]),
   ([Blackout], [Hilfsstationen halten Kontakt, auch ohne Stromnetz.]),
@@ -117,68 +138,55 @@
   ([Helfer vor Ort], [Einfach genug für Freiwillige ohne Funkausbildung.]),
 )
 
-#grid(
-  columns: (1fr, 1fr),
-  column-gutter: 3cm,
-  [
+#paar(
+  (gestreckt => [
     == Ersatzsystem für den Ernstfall
     Der CommsCube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
 
-    // Karten im 2×2-Raster, alle so hoch wie die längste
-    #layout(groesse => {
-      let abstand = 1.5cm
-      let breite = (groesse.width - abstand) / 2
-      let hoehe = calc.max(..faelle.map(((t, b)) => measure(fall(t, b), width: breite).height))
-      grid(
-        columns: (1fr, 1fr),
-        gutter: abstand,
-        ..faelle.map(((t, b)) => fall(t, b, hoehe: hoehe)),
-      )
-    })
-  ],
-  [
+    #v(1.5cm)
+    #grid(
+      columns: (1fr, 1fr),
+      column-gutter: 2cm,
+      row-gutter: 3cm,
+      ..faelle.map(((titel, t)) => [#block(above: 0pt, below: 1em, text(size: 36pt, weight: "bold", titel)) #t]),
+    )
+  ], none, false),
+  (gestreckt => [
     == Energiebedarf
     Der CommsCube verfügt über einen internen Akku, der mehrere Tage autarker Kommunikation gewährleistet:
     - Bereitschaft: rund 7 Wochen
     - Ernstfall: rund 8 Tage
-
-    #block(fill: white, width: 100%, inset: 1.5cm, radius: 1cm, figure(
-      image("bilder/energie_laufzeit_gruen.svg"),
-      caption: read("bilder/energie_laufzeit.txt"),
-    ))
-  ],
+    #if gestreckt { v(1fr) }
+    #image("bilder/energie_laufzeit_gruen.svg")
+  ], read("bilder/energie_laufzeit.txt"), true),
 )
 
 #v(1cm)
 
-// Technik, unterer Bereich
-// Text und Bilder in getrennten Zeilen, damit beide Bilder auf gleicher Höhe beginnen
-#let bildhoehe = 10cm
-#grid(
-  columns: (1fr, 1fr),
-  column-gutter: 3cm,
-  row-gutter: 1cm,
-  [
+// Technik, unterer Bereich, Bilder am unteren Rand der Flächen
+#let bildhoehe = 8.5cm
+#paar(
+  (gestreckt => [
     == Jedes Gerät ist ein Relais
     - Erreicht eine Nachricht ihr Ziel nicht direkt, reichen andere Würfel sie weiter
     - Fällt ein Knoten aus, nimmt sie einen anderen Weg. Eine Zentrale, die ausfallen könnte, gibt es nicht
     - Bis zu drei Weiterleitungen, maximal sieben
     - Verschlüsselt mit AES
-  ],
-  [
-    == Funktioniert auch im Nirgendwo
-    - Jeder Punkt ist ein Meshtastic-Knoten
-    - Die Geräte funken per LoRa im lizenzfreien 868-MHz-Band
-    - Funkmasten, Internet oder Stromnetz braucht es dafür nicht
-    - Eine einzelne Verbindung reicht in der Praxis rund 10 km weit
-  ],
-  figure(
-    block(fill: white, radius: 1cm, width: 100%, height: bildhoehe, align(center + horizon, mesh)),
-    caption: [Nachricht von A nach B über drei Zwischenstationen],
-  ),
-  figure(
-    box(clip: true, radius: 1cm, width: 100%, height: bildhoehe,
+    #if gestreckt { v(1fr) }
+    #block(fill: hintergrund, radius: 1cm, width: 100%, height: bildhoehe, align(center + horizon, mesh))
+  ], [Nachricht von A nach B über drei Zwischenstationen], true),
+  // Karte füllt die restliche Höhe neben dem Relais-Abschnitt
+  (gestreckt => grid(
+    rows: (auto, if gestreckt { 1fr } else { bildhoehe }),
+    row-gutter: 1cm,
+    [
+      == Funktioniert auch im Nirgendwo
+      - Jeder Punkt ist ein Meshtastic-Knoten
+      - Die Geräte funken per LoRa im lizenzfreien 868-MHz-Band
+      - Funkmasten, Internet oder Stromnetz braucht es dafür nicht
+      - Eine einzelne Verbindung reicht in der Praxis rund 10 km weit
+    ],
+    box(clip: true, radius: 1cm, width: 100%, height: 100%,
       image("bilder/map_plus_logo.png", width: 100%, height: 100%, fit: "cover")),
-    caption: [Platzhalter: Meshtastic-Knoten im Raum München],
-  ),
+  ), [Platzhalter: Meshtastic-Knoten im Raum München], false),
 )
