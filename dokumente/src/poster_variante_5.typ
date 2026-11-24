@@ -103,10 +103,10 @@
   })
 }
 
-// Literatur, Einträge auf drei Spalten verteilt (dafür feste Höhe)
+// Literatur, Einträge auf vier Spalten verteilt (dafür feste Höhe)
 #let literatur = block(width: 100%, stroke: (top: 0.08cm + linie), inset: (top: 1cm))[
   #set text(size: 26pt, fill: grau)
-  #block(height: 4.5cm, columns(3, gutter: 2.5cm, bibliography("refs.bib", title: none, style: "ieee")))
+  #block(height: 6cm, columns(4, gutter: 2.5cm, bibliography("refs.bib", title: none, style: "ieee")))
 ]
 
 // Zwischentitel innerhalb eines Teils
@@ -151,29 +151,22 @@
 
   #kern[Jedes Gerät ist ein Knoten und leitet Nachrichten für andere weiter. Eine Zentrale gibt es nicht.]
 
-  #zwischen[Technik]
-  - LoRa im lizenzfreien 868-MHz-Band überbrückt Kilometer bei geringem Stromverbrauch @lora-wiki.
-  - Das quelloffene und verbreitete Protokoll Meshtastic übernimmt das Weiterleiten @meshtastic-intro.
-
   #zwischen[Mesh-Routing]
-  #figure(
-    block(stroke: 0.05cm + linie, inset: 1cm, scale(85%, reflow: true, mesh)),
-    caption: [Nachricht von A nach B über drei Zwischenstationen],
-  ) <abb-mesh>
-
-  - Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
-  - Knoten mit schwachem Empfang senden zuerst, da sie meist am Rand der Reichweite liegen.
-  - Schon weitergeleitete Nachrichten werden nicht erneut gesendet.
-  - Eine Nachricht wird höchstens dreimal weitergeleitet, einstellbar bis siebenmal @meshtastic-lora.
+  #nebeneinander(
+    21cm,
+    [#figure(
+      block(stroke: 0.05cm + linie, inset: 1cm, scale(85%, reflow: true, mesh)),
+      caption: [Nachricht von A nach B über drei Zwischenstationen],
+    ) <abb-mesh>],
+    [
+      - Jeder Knoten sendet eine Nachricht einmal weiter @meshtastic-algo.
+      - Knoten am Rand der Reichweite senden zuerst.
+      - Doppelte Nachrichten werden verworfen.
+      - Höchstens drei Weiterleitungen, einstellbar bis sieben @meshtastic-lora.
+    ],
+  )
   - Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg.
   - AES mit Kanalschlüssel verschlüsselt jede Nachricht @meshtastic-enc.
-]
-
-#let teil-3 = [
-  = Ergebnis
-  Der CommsCube ist ein Handfunkgerät für Textnachrichten, das mit jedem Meshtastic-Gerät kommuniziert. Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus.
-
-  #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
 
   #zwischen[Systemaufbau]
   #nebeneinander(
@@ -184,11 +177,30 @@
     ) <abb-geraet>],
     [
       - Rechner nRF52840 (RAK4631) @rak4631.
-      - LoRa-Chip SX1262 für 868 MHz.
+      - LoRa-Chip SX1262, lizenzfrei bei 868 MHz @lora-wiki.
+      - Meshtastic als quelloffenes Protokoll @meshtastic-intro.
       - E-Paper-Anzeige mit 4,2 Zoll.
-      - Große Tasten und Drehrad.
-      - Versenkter Taster für Notfall-Meldungen.
+      - Große Tasten, Drehrad und versenkter Notfall-Taster.
       - Li-Ionen-Akku mit 10~000~mAh.
+    ],
+  )
+]
+
+#let teil-3 = [
+  = Ergebnis
+  Der CommsCube ist ein Handfunkgerät für Textnachrichten, das mit jedem Meshtastic-Gerät kommuniziert.
+
+  #kern[Ein LoRa-Mesh auf Basis von Meshtastic eignet sich als einfaches Ersatzsystem für Textnachrichten.]
+
+  #zwischen[Versuch]
+  #nebeneinander(
+    23cm,
+    [#figure(
+      image("bilder/map_plus_logo.png", width: 100%),
+      caption: [Meshtastic-Knoten im Raum München (Platzhalter)],
+    ) <abb-karte>],
+    [
+      - Zwei eigene Knoten und ein handelsübliches Meshtastic-Gerät tauschen Nachrichten über das Mesh aus.
     ],
   )
 
@@ -211,9 +223,9 @@
 ]
 
 // Drei Teile von links nach rechts, getrennt durch senkrechte Linien
-// Motivation braucht weniger Platz als das Ergebnis
+// Motivation braucht am wenigsten Platz
 #let teile = grid(
-  columns: (0.8fr, 1fr, 1.2fr),
+  columns: (0.75fr, 1.15fr, 1.1fr),
   inset: (x, y) => (left: if x > 0 { 2.5cm } else { 0cm }, right: if x < 2 { 2.5cm } else { 0cm }),
   stroke: (x, y) => if x > 0 { (left: 0.06cm + linie) },
   teil-1, teil-2, teil-3,
