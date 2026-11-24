@@ -74,110 +74,110 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="m59282580ae" d="M 0 0 
+       <path id="m519ef448d7" d="M 0 0 
 L 0 3.5 
-" style="stroke: #243247; stroke-width: 0.8"/>
+" style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m59282580ae" x="207.984688" y="277.186579" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m519ef448d7" x="207.984688" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle; fill: #243247" x="207.984688" y="310.140579" transform="rotate(-0 207.984688 310.140579)">0</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="207.984688" y="310.140579" transform="rotate(-0 207.984688 310.140579)">0</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#m59282580ae" x="366.891038" y="277.186579" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m519ef448d7" x="366.891038" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle; fill: #243247" x="366.891038" y="310.140579" transform="rotate(-0 366.891038 310.140579)">20</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="366.891038" y="310.140579" transform="rotate(-0 366.891038 310.140579)">20</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#m59282580ae" x="525.797389" y="277.186579" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m519ef448d7" x="525.797389" y="277.186579" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle; fill: #243247" x="525.797389" y="310.140579" transform="rotate(-0 525.797389 310.140579)">40</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="525.797389" y="310.140579" transform="rotate(-0 525.797389 310.140579)">40</text>
      </g>
     </g>
     <g id="text_4">
-     <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle; fill: #243247" x="435.067375" y="352.140579" transform="rotate(-0 435.067375 352.140579)">Laufzeit in Tagen</text>
+     <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: middle" x="435.067375" y="352.140579" transform="rotate(-0 435.067375 352.140579)">Laufzeit in Tagen</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_4">
       <defs>
-       <path id="ma004fb84d4" d="M 0 0 
+       <path id="m0c262c5b91" d="M 0 0 
 L -3.5 0 
-" style="stroke: #243247; stroke-width: 0.8"/>
+" style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#ma004fb84d4" x="207.984688" y="39.925646" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="39.925646" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end; fill: #243247" x="190.484688" y="52.902646" transform="rotate(-0 190.484688 52.902646)">Bereitschaft</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="52.902646" transform="rotate(-0 190.484688 52.902646)">Bereitschaft</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#ma004fb84d4" x="207.984688" y="108.104075" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="108.104075" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end; fill: #243247" x="190.484688" y="121.081075" transform="rotate(-0 190.484688 121.081075)">Einsatz</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="121.081075" transform="rotate(-0 190.484688 121.081075)">Einsatz</text>
      </g>
     </g>
     <g id="ytick_3">
      <g id="line2d_6">
       <g>
-       <use xlink:href="#ma004fb84d4" x="207.984688" y="176.282504" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="176.282504" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end; fill: #243247" x="190.484688" y="189.259504" transform="rotate(-0 190.484688 189.259504)">Nur Relais</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="189.259504" transform="rotate(-0 190.484688 189.259504)">Nur Relais</text>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_7">
       <g>
-       <use xlink:href="#ma004fb84d4" x="207.984688" y="244.460933" style="fill: #243247; stroke: #243247; stroke-width: 0.8"/>
+       <use xlink:href="#m0c262c5b91" x="207.984688" y="244.460933" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
-      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end; fill: #243247" x="190.484688" y="257.437933" transform="rotate(-0 190.484688 257.437933)">Ernstfall</text>
+      <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: end" x="190.484688" y="257.437933" transform="rotate(-0 190.484688 257.437933)">Ernstfall</text>
      </g>
     </g>
    </g>
    <g id="patch_7">
     <path d="M 207.984688 277.186579 
 L 207.984688 7.2 
-" style="fill: none; stroke: #243247; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="patch_8">
     <path d="M 207.984688 277.186579 
 L 662.150062 277.186579 
-" style="fill: none; stroke: #243247; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_9">
-    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start; fill: #243247" x="608.9111" y="46.974052" transform="rotate(-0 608.9111 46.974052)">50</text>
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="608.9111" y="46.974052" transform="rotate(-0 608.9111 46.974052)">50</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start; fill: #243247" x="532.316826" y="115.058075" transform="rotate(-0 532.316826 115.058075)">40</text>
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="532.316826" y="115.058075" transform="rotate(-0 532.316826 115.058075)">40</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start; fill: #243247" x="513.718695" y="183.236504" transform="rotate(-0 513.718695 183.236504)">38</text>
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="513.718695" y="183.236504" transform="rotate(-0 513.718695 183.236504)">38</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start; fill: #243247" x="279.409269" y="251.414933" transform="rotate(-0 279.409269 251.414933)">8</text>
+    <text style="font-size: 38px; font-family: 'Libertinus Serif', 'Nimbus Roman'; text-anchor: start" x="279.409269" y="251.414933" transform="rotate(-0 279.409269 251.414933)">8</text>
    </g>
   </g>
  </g>

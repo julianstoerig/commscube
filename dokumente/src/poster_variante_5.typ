@@ -1,5 +1,5 @@
 // Poster A0 quer, Variante 5: wie Variante 3, im Querformat
-#let dunkel = rgb("#243247")
+#let dunkel = black
 // Rot aus dem Logo der Hochschule München
 #let akzent = rgb("#FC5555")
 #let grau = rgb("#5b6675")

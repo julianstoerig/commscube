@@ -1,5 +1,5 @@
 // Poster A0 hochkant
-#let dunkel = rgb("#243247")
+#let dunkel = black
 #let akzent = color.hsl(140.69deg, 75.65%, 35.00%)
 #let grau = rgb("#5b6675")
 #let hintergrund = rgb("#F2F5F3")
