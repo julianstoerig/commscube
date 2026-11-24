@@ -159,7 +159,7 @@
   / Managed Flooding: Jeder Knoten sendet eine empfangene Nachricht einmal weiter @meshtastic-algo.
   / Vorrang: Knoten mit schwachem Empfang senden zuerst. Sie liegen meist am Rand der Reichweite.
   / Duplikate: Eine schon weitergeleitete Nachricht wird nicht erneut gesendet.
-  / Hop-Limit: 3 Weiterleitungen, maximal 7 @meshtastic-lora.
+  / Hop-Limit: Eine Nachricht wird bis zu dreimal weitergeleitet, auf Wunsch bis zu siebenmal @meshtastic-lora.
   / Ausfall: Fällt ein Knoten aus, nimmt die Nachricht einen anderen Weg. Eine Zentrale gibt es nicht.
   / Verschlüsselung: AES mit Kanalschlüssel @meshtastic-enc.
 

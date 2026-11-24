@@ -166,7 +166,7 @@
     == Jedes Gerät ist ein Relais
     - Erreicht eine Nachricht ihr Ziel nicht direkt, reichen andere Würfel sie weiter
     - Fällt ein Knoten aus, nimmt sie einen anderen Weg. Eine Zentrale, die ausfallen könnte, gibt es nicht
-    - Bis zu drei Weiterleitungen, maximal sieben
+    - Bis zu drei Weiterleitungen, auf Wunsch bis zu sieben
     - Verschlüsselt mit AES
     #if gestreckt { v(1fr) }
     #block(fill: hintergrund, radius: 1cm, width: 100%, height: bildhoehe, align(center + horizon, mesh))
