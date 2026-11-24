@@ -41,7 +41,7 @@
     place(line(start: (0%, f * 100%), end: (100%, f * 100%), stroke: 0.15cm + red))
   }
 })
-#set text(lang: "de", size: 32pt, font: "Inter", fill: dunkel)
+#set text(lang: "de", size: 35pt, font: "Inter", fill: dunkel)
 #set par(leading: 0.65em)
 
 #show heading.where(level: 2): set text(size: 54pt, hyphenate: false)
@@ -143,12 +143,12 @@
     == Ersatzsystem für den Ernstfall
     Der CommsCube ersetzt keinen Funk im Regelbetrieb. Er springt ein, wenn gewohnte Wege ausfallen.
 
-    #v(1.5cm)
+    #v(2.5cm)
     #grid(
       columns: (1fr, 1fr),
       column-gutter: 2cm,
-      row-gutter: 3cm,
-      ..faelle.map(((titel, t)) => [#block(above: 0pt, below: 1em, text(size: 36pt, weight: "bold", titel)) #t]),
+      row-gutter: 4cm,
+      ..faelle.map(((titel, t)) => [#block(above: 0pt, below: 1em, text(size: 42pt, weight: "bold", titel)) #t]),
     )
   ], none, false),
   (gestreckt => [
