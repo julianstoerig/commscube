@@ -118,7 +118,7 @@
   grid(
     columns: if bild-rechts { (1fr, breite) } else { (breite, 1fr) },
     column-gutter: 2cm,
-    align: horizon,
+    align: top,
     ..if bild-rechts { (text, bild) } else { (bild, text) },
   )
 }
@@ -139,11 +139,6 @@
   - Ist ohne Funkausbildung und mit Handschuhen bedienbar.
   - Bleibt bei Sonne und Dunkelheit lesbar.
   - Läuft mehrere Tage mit einer Akkuladung.
-
-  #figure(
-    image("bilder/commscube_mockup.png", width: 14cm),
-    caption: [Entwurf des CommsCube],
-  ) <abb-geraet>
 ]
 
 #let teil-2 = [
@@ -154,10 +149,10 @@
 
   == Mesh-Routing
   #nebeneinander(
-    16.5cm,
+    18.7cm,
     bild-rechts: true,
     [#figure(
-      block(stroke: 0.05cm + linie, inset: 1cm, scale(65%, reflow: true, mesh)),
+      block(stroke: 0.05cm + linie, inset: 1cm, scale(75%, reflow: true, mesh)),
       caption: [Nachricht von A nach B über drei Zwischenstationen],
     ) <abb-mesh>],
     [
@@ -169,11 +164,21 @@
   )
 
   == Systemaufbau
-  - Kernmodul RAK4631 mit LoRa-Funk im lizenzfreien 868-MHz-Band @rak4631 @lora-wiki.
-  - Meshtastic als quelloffenes Protokoll @meshtastic-intro.
-  - E-Paper-Anzeige mit 4,2 Zoll.
-  - Große Tasten, Drehrad und versenkter Notfall-Taster.
-  - Li-Ionen-Akku mit 10~000~mAh.
+  #nebeneinander(
+    15cm,
+    bild-rechts: true,
+    [#figure(
+      image("bilder/commscube_mockup.png", width: 100%),
+      caption: [Entwurf des CommsCube],
+    ) <abb-geraet>],
+    [
+      - Kernmodul RAK4631 mit LoRa-Funk im lizenzfreien 868-MHz-Band @rak4631 @lora-wiki.
+      - Meshtastic als quelloffenes Protokoll @meshtastic-intro.
+      - E-Paper-Anzeige mit 4,2 Zoll.
+      - Große Tasten, Drehrad und versenkter Notfall-Taster.
+      - Li-Ionen-Akku mit 10~000~mAh.
+    ],
+  )
 ]
 
 #let teil-3 = [
@@ -184,7 +189,7 @@
   - Zwei eigene Knoten und ein handelsübliches Meshtastic-Gerät tauschen Nachrichten über das Mesh aus.
 
   #figure(
-    image("bilder/map_plus_logo.png", width: 23cm),
+    image("bilder/map_plus_logo.png", width: 26cm),
     caption: [Meshtastic-Knoten im Raum München (Platzhalter)],
   ) <abb-karte>
 
@@ -204,7 +209,7 @@
 // Drei Teile von links nach rechts, getrennt durch senkrechte Linien
 // Motivation braucht am wenigsten Platz
 #let teile = grid(
-  columns: (0.85fr, 1.05fr, 1.1fr),
+  columns: (0.7fr, 1.2fr, 1.1fr),
   inset: (x, y) => (left: if x > 0 { 2.5cm } else { 0cm }, right: if x < 2 { 2.5cm } else { 0cm }),
   stroke: (x, y) => if x > 0 { (left: 0.06cm + linie) },
   teil-1, teil-2, teil-3,
