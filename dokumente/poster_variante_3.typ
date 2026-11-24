@@ -174,9 +174,7 @@
     caption: read("bilder/energie_laufzeit.txt"),
   ) <abb-energie>
 
-  Im Ernstfall mit dauerhaft aktivem GNSS zieht das Gerät im Mittel 43~mA. Mit 8500~mAh nutzbarer Ladung hält es rund 8 Tage:
-
-  $ t = C / I = (8500 "mAh") / (43 "mA") approx 198 "h" $
+  Der interne Akku kann den Energiebedarf des Funkgerätes selbst bei dauerhafter Verwendung für 8 Tage decken.
 
   = Ergebnisse
   Ein Versuchsaufbau mit zwei eigenen Knoten und einem handelsüblichen Meshtastic-Gerät tauscht Nachrichten über das Mesh aus.
