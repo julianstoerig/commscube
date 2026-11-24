@@ -128,7 +128,7 @@
 
 #let teil-1 = [
   = Motivation
-  Im Ernstfall fallen gewohnte Kommunikationswege aus. Der BOS-Digitalfunk (TETRA) ist bei Großschadenslagen ausgefallen oder überlastet, Mobilfunk und Internet hängen am Stromnetz. Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
+  Im Ernstfall fallen gewohnte Kommunikationswege aus. Der BOS-Digitalfunk (TETRA) kann bei Großschadenslagen ausfallen oder überlastet werden, Mobilfunk und Internet hängen am Stromnetz. Einsatz- und Hilfskräften fehlt dann ein einfacher und schneller Weg, wichtige Nachrichten auszutauschen.
 
   #kern[Ziel: ein robustes Gerät für Textnachrichten, das ohne externe Infrastruktur funktioniert. Es ersetzt keinen TETRA-Funk im Regelbetrieb, sondern springt ein, wenn gewohnte Wege ausfallen.]
 
